@@ -71,4 +71,67 @@ def regex_pattern_demo():
     plural_pattern = r'tests*'
     test_str = "test tests testing"
     plurals = re.findall(plural_pattern, test_str)
-    print(f"
+    print(f"Found variants: {plurals}")
+    
+    # 7. Backslash (\) - Escape special characters
+    print("\n7. Finding literal dots:")
+    dot_pattern = r'\.'
+    dots = re.findall(dot_pattern, test_text)
+    print(f"Found dots: {len(dots)} occurrences")
+    
+    # 8. Pipe symbol (|) - Alternative choices
+    print("\n8. Finding 'http' or 'https':")
+    protocol_pattern = r'https?|ftp'
+    protocols = re.findall(protocol_pattern, test_text)
+    print(f"Found protocols: {protocols}")
+
+def practical_examples():
+    """
+    Real-world applications of regex and Unicode processing
+    """
+    print("\n=== Practical Applications ===")
+    
+    # Example 1: Cleaning and normalizing text
+    text = "Here's some text with múltiple     spaces and accènts!"
+    
+    # Normalize Unicode characters
+    normalized = unicodedata.normalize('NFKD', text).encode('ASCII', 'ignore').decode('ASCII')
+    # Remove extra spaces
+    cleaned = re.sub(r'\s+', ' ', normalized).strip()
+    print(f"Cleaned text: {cleaned}")
+    
+    # Example 2: Extracting structured information
+    contact_info = """
+    Contact Details:
+    John Doe: +1-555-123-4567
+    Jane Smith: +44 20 7123 4567
+    Email: john@example.com, jane@example.com
+    """
+    
+    # Extract phone numbers
+    phone_pattern = r'[\+\d\-\s]+'
+    phones = re.findall(phone_pattern, contact_info)
+    phones = [p.strip() for p in phones if p.strip()]
+    
+    # Extract emails
+    email_pattern = r'\b[\w\.-]+@[\w\.-]+\.\w+\b'
+    emails = re.findall(email_pattern, contact_info)
+    
+    print("\nExtracted Information:")
+    print(f"Phone numbers: {phones}")
+    print(f"Email addresses: {emails}")
+
+def main():
+    """
+    Main function to run all demonstrations
+    """
+    print("=== Text Processing with Unicode and Regular Expressions ===")
+    print("This program demonstrates various concepts of Unicode processing")
+    print("and Regular Expressions for pattern matching.")
+    
+    unicode_demo()
+    regex_pattern_demo()
+    practical_examples()
+
+if __name__ == "__main__":
+    main()
