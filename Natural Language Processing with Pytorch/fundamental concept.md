@@ -31,6 +31,12 @@ in the vector representation. he TF-IDF score is simply the product TF(w)
 * IDF(w).
 ![alt text](image-2.png)
 
+5. Any PyTorch method with
+an underscore (_) refers to an in-place operation; that is, it modifies the
+content in place without creating a new object, 
+![alt text](image-3.png)
+
+6. 
 
 
 
