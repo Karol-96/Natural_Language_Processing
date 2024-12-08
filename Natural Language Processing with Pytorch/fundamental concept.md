@@ -62,6 +62,19 @@ the dtype.
 Creating tensors for gradient bookkeeping
 ![alt text](image-7.png)
 
-12. 
+12. Using Cuda Sensors(Compute Unified Device Architecture)
+![alt text](image-8.png)
+![alt text](image-12.png)
+
+13. Exercise 
+![alt text](image-9.png)
+![alt text](image-10.png)
+
+14. Visualizing Computation Graphs
+You can visualize the computation graph using a tool like tensorboard or directly within PyTorch using the following methods:
+
+![alt text](image-11.png)
+
+
 
 
