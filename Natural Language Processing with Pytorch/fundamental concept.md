@@ -34,9 +34,34 @@ in the vector representation. he TF-IDF score is simply the product TF(w)
 5. Any PyTorch method with
 an underscore (_) refers to an in-place operation; that is, it modifies the
 content in place without creating a new object, 
-![alt text](image-3.png)
+![alt text](image-4.png)
 
-6. 
+6. Tensor Types and Sizes: Each tensor has an associated type and size. The default tensor type when
+you use the torch.Tensor constructor is torch.FloatTensor. However,
+you can convert a tensor to a different type (float, long, double, etc.) by
+specifying it at initialization or later using one of the typecasting methods.
+There are two ways to specify the initialization type: either by directly
+calling the constructor of a specific tensor type, such as FloatTensor or
+LongTensor, or using a special method, torch.tensor(), and providing
+the dtype.
+![alt text](image-5.png)
 
+7. Tensor Operations
+![alt text](image-6.png)
+
+8. Dimension based Tensors
+![alt text](image-6.png)
+
+9. Concatenating Tensors
+![alt text](image-6.png)
+
+10. Linear Algebra: Multiplication
+![alt text](image-6.png)
+
+11. Tensors and Computational Graphs
+Creating tensors for gradient bookkeeping
+![alt text](image-7.png)
+
+12. 
 
 
