@@ -75,6 +75,69 @@ You can visualize the computation graph using a tool like tensorboard or directl
 
 ![alt text](image-11.png)
 
+15. Unigrams, Bigrams, Trigrams, ..., N-grams :
+N­grams are fixed­length (n) consecutive token sequences occurring in the text. A bigram has two tokens, a unigram one.
 
+16. Lemmas and Stems
+Lemmas are root forms of words. Consider the verb fly. It can be inflected into many different words —flow, flew, flies, flown, flowing, and so on—and fly is the lemma for all of these seemingly different words. Sometimes, it might be useful to reduce the tokens to their lemmas to keep the dimensionality of the vector representation low. This reduction is called lemmatization
+Stemming is the poor­man’s lemmatization.3 It involves the use of handcrafted rules to strip endings of words to reduce them to a common form called stems. Popular stemmers often implemented in open source packages include the Porter and Snowball stemmers.
+
+17. POS Tagging : it is the process of categorizing words into tokens or documents.
+![alt text](image-13.png)
+
+18. NP (Noun Phrase) & NTR(Named Entity Recognition): Another type of span that’s useful is the named entity. A named entity is a string mention of a real­ world concept like a person, location, organization, drug name, and so on. Here’s an example:
+![alt text](image-15.png)
+![alt text](image-14.png)
+
+10. Perceptron: The simplest neural network is called perception.
+![alt text](image-16.png)
+
+11. Activation Functions: Activation function are non-linearities introduced in neural networks to capture complex relationship between data.
+
+It is also can be said as the feature representaion that are passed between the neurons/layers within the neural network that justifies previous relationship be it shape,size and features.
+
+12. Sigmoid Activation Function: It is one of the earliest developed. It takes any real value and squash it onto range between 0 and 1. 
+![alt text](image-17.png)
+
+As you can observe signmoid can produce extreme values very quickly and for the majority of the inputs. This can lead to a problem where gradients are either 0 or divering to an overfitting float point value. This value is called vanishing gradient descent or exploding gradient descent problems. As of this, it is rare to see sigmoid used in neural network other than output as it squashes output to probablities.
+
+13. tan h: It is a linear transform of sigmoid activation fucntion. It is also squashing function but it maps the set of real values from (–∞, +∞) to therange[­1, +1].
+![alt text](image-18.png)
+
+14. Re-Lu Activation Functions: It stands for rectified Linear unit. This is the most important of activation function. It clips all the negative values to zero. 
+ 
+ ![alt text](image-19.png)
+The ReLU (Rectified Linear Unit) activation function helps prevent vanishing gradients through its linear behavior for positive inputs. However, its zero gradient for negative inputs can lead to the "dying ReLU problem," where neurons become permanently inactive if they consistently receive negative inputs. This occurs because the gradient becomes zero for all negative values, preventing weight updates during backpropagation.
+
+To address this limitation, variants like Leaky ReLU and Parametric ReLU (PReLU) were developed. These modifications allow a small, non-zero gradient for negative inputs:
+- Leaky ReLU: uses a fixed small slope (typically 0.01) for negative values
+- PReLU: uses a learnable parameter to determine the slope for negative values
+
+These variants help maintain some gradient flow even for negative inputs, reducing the likelihood of neurons becoming permanently inactive.
+
+15. Loss function: a loss function takes a truth (y) and a prediction (ŷ) as an input and produces a real­ valued score. The higher this score, the worse the model’s prediction is. PyTorch implements more loss functions in its nn package.
+
+16. Mean Squared Error Loss
+For regression problems for which the network’s output (ŷ) and the target (y) are continuous values, one common loss function is the mean squared error (MSE):
+
+![alt text](image-20.png)
+
+The MSE is simply the average of the squares of the difference between the predicted and target values. There are several other loss functions that you can use for regression problems, such as mean absolute error (MAE) and root mean squared error (RMSE), but they all involve computing a real­ valued distance between the output and target.
+
+![alt text](image-21.png)
+
+
+17. Categorical Cross Entropy Loss: The categorical cross entropy loss is used in multi class classificaiton problems where outputs are interpreted as predictions of class memebers probablities. the target (y) is vector of n elements that represents true multinominal distibutions of overall classes. If only one class is correct, this vector is a one­hot vector. The network’s output (ŷ) is also a vector of n elements but represents the network’s prediction of the multinomial distribution. Categorical cross entropy will compare these two vectors (y,ŷ) to measure the loss:
+
+![alt text](image-22.png)
+![alt text](image-24.png)
+
+18. Binary cross-entropy loss measures how confident you were in the right answer between two classes.
+
+If you guessed 100% sure it’s a cookie, the loss would be 0 (perfect!).
+If you guessed 50-50, the loss would be higher (not confident enough 😕).
+If you guessed 80% no, the loss would be HUGE! 🚨
+Binary cross-entropy rewards confident correct guesses and penalizes wrong/confused guesses.
+![alt text](image-25.png)
 
 
