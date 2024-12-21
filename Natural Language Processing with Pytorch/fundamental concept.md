@@ -140,4 +140,12 @@ If you guessed 80% no, the loss would be HUGE! 🚨
 Binary cross-entropy rewards confident correct guesses and penalizes wrong/confused guesses.
 ![alt text](image-25.png)
 
+19. K-Fold Cross Validation is a technique to evaluate the performance of a model by dividing the dataset into k subsets (folds). The model is trained on k-1 folds and tested on the remaining fold. This process is repeated k times, with each fold being used as the test set exactly once.
+
+
+20.Regularization;  The concept of regularization comes from numerical optimization theory. Recall that most machine learning algorithms are optimizing the loss function to find the most likely values of the parameters (or “the model”) that explains the observations (i.e., produces the least amount of loss). For most datasets and tasks, there could be multiple solutions (possible models) to this optimization problem. So which one should we (or the optimizer) pick? To develop an intuitive understanding, consider igure 3­3 for the task of fitting a curve through a set of points.
+Both curves “fit” the points, but which one is an unlikely explanation? By appealing to Occam’s razor, we intuit that the simpler explanation is better than the complex one. This smoothness constraint in machine learning is called L2 regularization. In PyTorch, you can control this by setting the weight_decay parameter in the optimizer. The larger the weight_decay value, the more likely it is that the optimizer will select the smoother explanation (that is, the stronger is the L2 regularization).
+![alt text](image-26.png)
+
+
 
