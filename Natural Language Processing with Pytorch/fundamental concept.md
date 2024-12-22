@@ -148,4 +148,27 @@ Both curves “fit” the points, but which one is an unlikely explanation? By a
 ![alt text](image-26.png)
 
 
+21. Pooling (CNN)
+Pooling is an operation to summarize a higher­dimensional feature map to a lower­dimensional feature map. The output of a convolution is a feature map. The values in the feature map summarize some region of the input. Due to the overlapping nature of convolution computation, many of the computed features can be redundant. Pooling is a way to summarize a high­dimensional, and possibly redundant, feature map into a lower­dimensional one. Formally, pooling is an arithmetic operator like sum, mean, or max applied over a local region in a feature map in a systematic way, and the resulting pooling operations are known as sum pooling, average pooling, and max pooling, respectively. Pooling can also function as a way to improve the statistical strength of a larger but weaker feature map into a smaller but stronger feature map. igure 4­13 illustrates pooling.
+![alt text](image-27.png)
 
+22. Batch Normalization (BatchNorm)
+Batch normalization, or BatchNorm, is an often­used tool in designing CNNs. BatchNorm applies a transformation to the output of a CNN by scaling the activations to have zero mean and unit variance. The mean and variance values it uses for the Z­transform 9 are updated per batch such that fluctuations in any single batch won’t shift or affect it too much. BatchNorm allows models to be less sensitive to initialization of the parameters and simplifies the tuning of learning rates (Ioffe and Szegedy, 2015). In PyTorch, BatchNorm is defined in the nn module. xample 4­22 shows how to instantiate and use BatchNorm with convolution and Linear layers.
+![alt text](image-28.png)
+
+23. Network-in-Network Connections (1x1 Convolutions)
+Network­in­network (NiN) connections are convolutional kernels with kernel_size=1 and have a few interesting properties. In particular, a 1×1 convolution acts like a fully connected linear layer across the channels. 0 This is useful in mapping from feature maps with many channels to shallower feature maps. In igure 4­14, we show a single NiN connection being applied to an input matrix. As you can see, it reduces the two channels down to a single channel. Thus, NiN or 1×1 convolutions provide an inexpensive way to incorporate additional nonlinearity with few parameters (Lin et al)
+![alt text](image-29.png)
+
+24. 
+Residual Connections/Residual Block
+One of the most significant trends in CNNs that has enabled really deep networks (more than 100 layers) is the residual connection. It is also called a skip connection. If we let the convolution function be represented as conv, the output of a residual block is as follows: 1
+output = conv ( input ) + input
+There is an implicit trick to this operation, however, which we show in igure 4­15. For the input to be added to the output of the convolution, they must have the same shape. To accomplish this, the standard practice is to apply a padding before convolution. In igure 4­15, the padding is of size 1 for a convolution of size 3. To learn more about the details of residual connections, the original paper by He et al. (2016) is still a great reference. For an example of residual networks used in NLP, see Huang and Wang (2017).
+![alt text](image-30.png)
+
+25. Embedding models: Word2Vec,Stanford’s GLoVe, Facebook’s FastText
+
+26. SequenceVocabulary ; A subclass of the standard Vocabulary class that bundles four special tokens used for sequence data: the UNK token, the MASK token, the BEGIN­OF­SEQUENCE token, and the END­OF­SEQUENCE token. We describe these tokens in more detail in hapter 6, but in brief, they serve three different purposes. The UNK token (short for unknown), which we saw in hapter 4, allows the model to learn a representation for rare words so that it can accommodate words that it has never seen at test time. The MASK token serves as a sentinel for Embedding layers and loss calculations when we have sequences of variable length. Finally, the BEGIN­OF­SEQUENCE and END­OF­SEQUENCE tokens give the neural network hints about the sequence boundaries.
+
+![alt text](image-31.png)
