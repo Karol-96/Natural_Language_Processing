@@ -172,3 +172,14 @@ There is an implicit trick to this operation, however, which we show in igure 4�
 26. SequenceVocabulary ; A subclass of the standard Vocabulary class that bundles four special tokens used for sequence data: the UNK token, the MASK token, the BEGIN­OF­SEQUENCE token, and the END­OF­SEQUENCE token. We describe these tokens in more detail in hapter 6, but in brief, they serve three different purposes. The UNK token (short for unknown), which we saw in hapter 4, allows the model to learn a representation for rare words so that it can accommodate words that it has never seen at test time. The MASK token serves as a sentinel for Embedding layers and loss calculations when we have sequences of variable length. Finally, the BEGIN­OF­SEQUENCE and END­OF­SEQUENCE tokens give the neural network hints about the sequence boundaries.
 
 ![alt text](image-31.png)
+
+27. we use another technique, called masking, to handle variable­length sequences by taking advantage of knowledge of the lengths of the sequences. In brief, masking allows for the data to signal when certain inputs should not count toward the gradient or the eventual output. PyTorch provides primitives for handling variable­ length sequences called PackedSequences that create dense tensors from these less­dense ones.
+
+28. The softmax function has many roots. In physics, it is known as the Boltzmann or
+Gibbs distribution; in statistics, it’s multinomial logistic regression; and in the natural language
+processing (NLP) community it’s known as the maximum entropy (MaxEnt) classifier
+
+
+29. Softmax fucntion is used to transform vector output to probablities
+
+30. 
