@@ -27,3 +27,31 @@ def preprocess_text(text):
 input_texts = input_texts.apply(preprocess_text)
 output_texts = output_texts.apply(preprocess_text)
 
+
+#Function to build vocanulary from text corpus
+def build_vocab(texts):
+    counter = Counter() #For counting word frequencies
+    for text in texts: 
+        counter.update(text.split('')) #Split texts into word and count
+    vocab = {word:idx + 1 for idx,word in enumerate(counter) } #Assigning unique index starting from 1
+    vocab['<PAD>'] = 0 #Padding token for sequence alignment
+    vocab['<SOS>'] = len(vocab) + 1 #Special start of sequence token
+    vocab['<EOS>'] = len(vocab) + 2 #Special end of sequence token
+    return vocab
+
+#Build Vocabularies for Input and Outout texts
+input_texts = build_vocab(input_texts)
+output_texts = build_vocab(output_texts)
+
+#Function to tokenize text using the vocabulary
+def tokenize(text,vocab):
+    tokens = [vocab['<SOS>']] + [vocab.get(word,0) for word in text.split()] + [vocab['<EOS>']]
+    return tokens
+
+
+input_sequences = [tokenize(text, input_vocab) for text in input_texts]
+output_sequences = [tokenize(text, output_vocab) for text in output_texts]
+
+
+
+
